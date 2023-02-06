@@ -4,6 +4,109 @@ fun main() {
 	PatternPrinting.square(6,6)
 }
 
+class Functions{
+	companion object{
+		fun areaOfCircle(radius : Int): Double {
+			return (radius*radius)*Math.PI
+		}
+		fun evenOrOdd(number: Int): String {
+			return if(number%2==0) "Even" else "Odd"
+		}
+		fun factorial(num : Int): Int {
+			var fact = 1
+			for(num in 1..num){
+				fact *= num
+			}
+			return fact
+		}
+		fun primeOrNot(num: Int): Boolean {
+			for(i in 2..(num/2)){
+				if(num%i == 0){
+					return false
+					break
+				}
+			}
+			return true
+		}
+		fun primeFromOneToN(n : Int){
+			var builder = StringBuilder()
+			for(num in 2..n){
+				var prime = true
+				if(num/2 >= 2){
+					for(i in 2..num/2){
+						if(num%i == 0){
+							prime = false // not a prime number
+							break
+						}
+					}
+				}
+				if(prime)
+					builder.append("$num, ")
+			}
+			println("$builder")
+		}
+		fun printAllDigitsInAnIntegerWithoutLoop(num: Int){
+			var finalNum = num
+
+			while(finalNum > 0){
+				var lastDigit = finalNum % 10 // get last digit
+				println("$lastDigit")
+				finalNum /= 10 // remove last digit
+			}
+
+		}
+		fun printAllDigitsInAnIntegerWithLoop(num: Int){
+			for(num in num.toString().toCharArray()){
+				println(num)
+			}
+		}
+		fun oneToNWithoutLoop(num : Int){
+			if(num>1)
+				oneToNWithoutLoop(num-1)
+			println("$num")
+		}
+		fun digitsToNumber(){
+			println("Enter a digit")
+			var digit1 = readLine()
+
+			println("Enter a digit")
+			var digit2 = readLine()
+
+			println("Enter a digit")
+			var digit3 = readLine()
+
+			println((digit1+digit2+digit3).toInt())
+		}
+		fun reverseAnInteger(num : Int){
+			var str = ""
+			var finalNum = num
+			while(finalNum > 0){
+				var lastDigit = finalNum % 10
+				str += lastDigit
+				finalNum /= 10
+			}
+
+			println("${str.toInt()}")
+		}
+		// 786
+		fun reverseAnIntegerWithoutString(){
+			var num = 786
+			var reversed = 0
+
+			while (num != 0) {
+				val digit = num % 10 // 6 -> 8 -> 7
+				reversed = reversed * 10 + digit
+				// 0 = 0 * 10 + 6 -> 6
+				// 6 = 6 * 10 + 8 -> 68
+				// 68 = 68 * 10 + 7 -> 687
+				num /= 10
+			}
+
+			println("Reversed Number: $reversed")
+		}
+	}
+}
+
 class PatternPrinting {
 	companion object {
 
@@ -101,7 +204,6 @@ class PatternPrinting {
 				print("\n")
 			}
 		}
-
 
 		fun numericHollowPyramid(row: Int) {
 			for(r in 1..row) {
@@ -222,8 +324,32 @@ class PatternPrinting {
 		}
 
 		fun numericHollowPyramid2(n: Int) {
+			for(row in 0 until n){
+				for(space in 0 until n-(row+1)){
+					print(" ")
+				}
 
+				for(col in 1..row+1){
+					if(col == 1 || col == row+1 || row == n-1){
+						print(if(col == row+1) "$col" else "${col}-")
+					}else{
+						print("--")
+					}
+				}
+				print("\n")
+			}
 		}
 
+		fun invertedFullPyramid2(n : Int){
+			for(row in 0 until n){
+				for(space in 0 until row){
+					print(" ")
+				}
+				for(star in 0 until n-row){
+					print("* ")
+				}
+				print("\n")
+			}
+		}
 	}
 }
