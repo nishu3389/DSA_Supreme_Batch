@@ -70,7 +70,7 @@ class Functions{
 		
 		fun oneToNumWithoutLoop(num : Int){
 			if(num>1)
-				oneToNWithoutLoop(num-1)
+				oneToNumWithoutLoop(num-1)
 			println("$num")
 		}
 		
