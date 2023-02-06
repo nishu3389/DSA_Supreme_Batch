@@ -6,12 +6,15 @@ fun main() {
 
 class Functions{
 	companion object{
+		
 		fun areaOfCircle(radius : Int): Double {
 			return (radius*radius)*Math.PI
 		}
+		
 		fun evenOrOdd(number: Int): String {
 			return if(number%2==0) "Even" else "Odd"
 		}
+		
 		fun factorial(num : Int): Int {
 			var fact = 1
 			for(num in 1..num){
@@ -19,6 +22,7 @@ class Functions{
 			}
 			return fact
 		}
+		
 		fun primeOrNot(num: Int): Boolean {
 			for(i in 2..(num/2)){
 				if(num%i == 0){
@@ -28,6 +32,7 @@ class Functions{
 			}
 			return true
 		}
+		
 		fun primeFromOneToN(n : Int){
 			var builder = StringBuilder()
 			for(num in 2..n){
@@ -45,6 +50,7 @@ class Functions{
 			}
 			println("$builder")
 		}
+		
 		fun printAllDigitsInAnIntegerWithoutLoop(num: Int){
 			var finalNum = num
 
@@ -55,16 +61,19 @@ class Functions{
 			}
 
 		}
+		
 		fun printAllDigitsInAnIntegerWithLoop(num: Int){
 			for(num in num.toString().toCharArray()){
 				println(num)
 			}
 		}
-		fun oneToNWithoutLoop(num : Int){
+		
+		fun oneToNumWithoutLoop(num : Int){
 			if(num>1)
 				oneToNWithoutLoop(num-1)
 			println("$num")
 		}
+		
 		fun digitsToNumber(){
 			println("Enter a digit")
 			var digit1 = readLine()
@@ -77,6 +86,7 @@ class Functions{
 
 			println((digit1+digit2+digit3).toInt())
 		}
+		
 		fun reverseAnInteger(num : Int){
 			var str = ""
 			var finalNum = num
@@ -88,6 +98,7 @@ class Functions{
 
 			println("${str.toInt()}")
 		}
+		
 		// 786
 		fun reverseAnIntegerWithoutString(){
 			var num = 786
